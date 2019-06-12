@@ -8,17 +8,18 @@
         INSERT INTO book(name,author) VALUES (#{name},#{author})
     </insert>
 
-    <delete id="deleteBookById" parameterType="java.lang.Integer" >
-        delete from book
-        where id = #{id}
-    </delete>
-
     <update id="updateBookById" parameterType="com.niu.springboot.bean.Book">
         UPDATE book SET name=#{name},author=#{author} WHERE id=#{id}
     </update>
-    <select id="getBookById" parameterType="int" resultType="com.niu.springboot.bean.Book">
+
+    <delete id="deleteBookById" parameterType="java.lang.Integer" >
+        delete from book where id = #{id}
+    </delete>
+
+    <select id="getBookById" parameterType="java.lang.Integer" resultType="com.niu.springboot.bean.Book">
         SELECT * FROM book WHERE id = #{id}
     </select>
+
     <select id="getAllBooks" resultType="com.niu.springboot.bean.Book">
         SELECT * FROM book
     </select>
