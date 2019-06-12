@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niu.springboot.mapper.BookMapper">
+
+    <insert id="addBook" parameterType="com.niu.springboot.bean.Book">
+        INSERT INTO book(name,author) VALUES (#{name},#{author})
+    </insert>
+
+    <delete id="deleteBookById" parameterType="java.lang.Integer" >
+        delete from book
+        where id = #{id}
+    </delete>
+
+    <update id="updateBookById" parameterType="com.niu.springboot.bean.Book">
+        UPDATE book SET name=#{name},author=#{author} WHERE id=#{id}
+    </update>
+    <select id="getBookById" parameterType="int" resultType="com.niu.springboot.bean.Book">
+        SELECT * FROM book WHERE id = #{id}
+    </select>
+    <select id="getAllBooks" resultType="com.niu.springboot.bean.Book">
+        SELECT * FROM book
+    </select>
+
+</mapper>
